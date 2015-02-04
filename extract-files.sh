@@ -21,13 +21,54 @@ if [[ -z "${ANDROIDFS_DIR}" ]]; then
     ANDROIDFS_DIR=../../../backup-${DEVICE}
 fi
 
-if [[ ! -d ../../../backup-${DEVICE}/system ]]; then
+ROOT_FILES="
+	charger
+	default.prop
+	file_contexts
+	fstab.qcom
+	init
+	init.class_main.sh
+	init.environ.rc
+	init.mdm.sh
+	init.qcom.class_core.sh
+	init.qcom.early_boot.sh
+	init.qcom.factory.sh
+	init.qcom.rc
+	init.qcom.sh
+	init.qcom.ssr.sh
+	init.qcom.syspart_fixup.sh
+	init.rc
+	init.sony-device-common.rc
+	init.sony-device.rc
+	init.sony-platform.rc
+	init.sony.rc
+	init.sony.usb.rc
+	init.target.rc
+	init.trace.rc
+	init.usb.rc
+	init.usbmode.sh
+	logo.rle
+	property_contexts
+	seapp_contexts
+	sepolicy
+	ueventd.qcom.rc
+	ueventd.rc
+	"
+
+if [[ ! -d ../../../backup-${DEVICE}/root/sbin ]]; then
     echo Backing up system partition to backup-${DEVICE}
-    mkdir -p ../../../backup-${DEVICE} &&
+    mkdir -p ../../../backup-${DEVICE}/root &&
     adb root &&
     sleep 1 &&
     adb wait-for-device &&
-    adb pull /system ../../../backup-${DEVICE}/system
+    adb pull /system ../../../backup-${DEVICE}/system &&
+    echo Backing up root fs files to backup-${DEVICE} &&
+    for NAME in $ROOT_FILES
+    do
+        adb pull /$NAME ../../../backup-${DEVICE}/root/
+    done &&
+    adb pull /res ../../../backup-${DEVICE}/root/res/ &&
+    adb pull /sbin ../../../backup-${DEVICE}/root/sbin/
 fi
 
 echo Pulling files from ${ANDROIDFS_DIR}
@@ -49,7 +90,7 @@ PROPRIETARY_DEVICE_DIR=../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
 mkdir -p $PROPRIETARY_DEVICE_DIR
 
-for NAME in audio etc etc/acdbdata/MTP etc/firmware egl hw nfc camera/LGI02BN1 camera/SEM02BN1 camera/SOI20BS1
+for NAME in audio etc etc/acdbdata/MTP etc/firmware egl hw nfc camera/LGI02BN1 camera/SEM02BN1 camera/SOI20BS1 root
 do
     mkdir -p $PROPRIETARY_DEVICE_DIR/$NAME
 done
@@ -148,6 +189,30 @@ copy_local_files()
     done
 }
 
+COMMON_ROOT="
+	charger
+	fstab.qcom
+	init
+	init.qcom.rc
+	init.sony-device-common.rc
+	init.sony-device.rc
+	init.sony-platform.rc
+	init.sony.rc
+	init.sony.usb.rc
+	init.target.rc
+	init.usbmode.sh
+	ueventd.qcom.rc
+	"
+
+COMMON_ROOT_SBIN="
+	tad_static
+	wait4tad_static
+	"
+
+copy_files "$COMMON_ROOT" "root" "root"
+copy_files "$COMMON_ROOT_SBIN" "root/sbin" "root"
+copy_files_glob "*.png" "root/res/images/charger" "root"
+
 COMMON_LIBS="
 	libcnefeatureconfig.so
 	libgps.utils.so
@@ -203,6 +268,11 @@ COMMON_LIBS="
 	liblights-core.so
 	libsys-utils.so
 	libEffectOmxCore.so
+	libdtcpipplayer.so
+	libsapporo.so
+	libaudiospring.so
+	libaudioflinger.so
+	libmedia.so
 	"
 
 copy_files "$COMMON_LIBS" "system/lib" ""
@@ -265,6 +335,7 @@ COMMON_BINS="
 	sct_service
 	suntrold
 	illumination_service
+	mediaserver
 	"
 
 copy_files "$COMMON_BINS" "system/bin" ""
@@ -294,6 +365,7 @@ COMMON_ETC="
 	dsx_param_file.bin
 	sap.conf
 	sensor_def_qcomdev.conf
+	ramdump_ssr.xml
 	"
 copy_files "$COMMON_ETC" "system/etc" "etc"
 
