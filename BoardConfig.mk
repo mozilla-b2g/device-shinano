@@ -26,7 +26,7 @@ BOARD_USE_QCOM_LLVM_CLANG_RS := true
 
 TARGET_NO_BOOTLOADER := true
 KERNEL_DEFCONFIG := shinano_leo_defconfig
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0xb7 ehci-hcd.park=3 dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 selinux=0 msm_rtb.filter=0xb7 ehci-hcd.park=3 dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
