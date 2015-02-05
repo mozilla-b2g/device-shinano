@@ -273,6 +273,7 @@ COMMON_LIBS="
 	libaudiospring.so
 	libaudioflinger.so
 	libmedia.so
+	libdisplayservice.so
 	"
 
 copy_files "$COMMON_LIBS" "system/lib" ""
@@ -289,6 +290,7 @@ copy_files_glob "*.dat" "system/vendor/camera/LGI02BN1" "camera/LGI02BN1"
 copy_files_glob "*.dat" "system/vendor/camera/SEM02BN1" "camera/SEM02BN1"
 copy_files_glob "*.dat" "system/vendor/camera/SOI20BS1" "camera/SOI20BS1"
 
+copy_files_glob "*.so" "system/vendor/lib/rfsa/adsp" "audio"
 copy_files_glob "*.so" "system/vendor/lib/soundfx" "audio"
 
 copy_files_glob "lib*.so" "system/vendor/lib" ""
@@ -336,6 +338,12 @@ COMMON_BINS="
 	suntrold
 	illumination_service
 	mediaserver
+	scd
+	credmgrd
+	mm-pp-daemon
+	gsiff_daemon
+	hvdcp
+	display_color_calib
 	"
 
 copy_files "$COMMON_BINS" "system/bin" ""
@@ -349,10 +357,12 @@ COMMON_HW="
 	keystore.qcom.so
 	nfc_nci_pn547.msm8974.so
 	lights.default.so
+	libdisplay.default.so
 	"
 copy_files "$COMMON_HW" "system/lib/hw" "hw"
 
 COMMON_ETC="
+	ad_calib.cfg
 	audio_effects.conf
 	audio_policy.conf
 	gps.conf
