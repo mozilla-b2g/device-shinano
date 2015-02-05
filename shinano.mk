@@ -3,6 +3,9 @@ $(call inherit-product, device/qcom/msm8974/msm8974.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 $(call inherit-product-if-exists, vendor/sony/shinano/shinano-vendor-blobs.mk)
 
+PRODUCT_COPY_FILES += \
+  device/sony/shinano/volume.cfg:system/etc/volume.cfg \
+
 PRODUCT_PACKAGES += \
   bcm4339.ko \
   libandroid \
