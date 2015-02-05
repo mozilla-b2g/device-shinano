@@ -1,10 +1,13 @@
 $(call inherit-product, device/qcom/msm8974/msm8974.mk)
 
+PRODUCT_COPY_FILES := @inherit:device/qcom/common/common.mk
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 $(call inherit-product-if-exists, vendor/sony/shinano/shinano-vendor-blobs.mk)
 
 PRODUCT_COPY_FILES += \
   device/sony/shinano/volume.cfg:system/etc/volume.cfg \
+  system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf \
 
 PRODUCT_PACKAGES += \
   bcm4339.ko \
