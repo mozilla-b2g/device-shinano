@@ -290,6 +290,8 @@ copy_files_glob "*.dat" "system/vendor/camera/LGI02BN1" "camera/LGI02BN1"
 copy_files_glob "*.dat" "system/vendor/camera/SEM02BN1" "camera/SEM02BN1"
 copy_files_glob "*.dat" "system/vendor/camera/SOI20BS1" "camera/SOI20BS1"
 
+copy_files "effect_init_params" "system/vendor/etc" "audio"
+
 copy_files_glob "*.so" "system/vendor/lib/rfsa/adsp" "audio"
 copy_files_glob "*.so" "system/vendor/lib/soundfx" "audio"
 
