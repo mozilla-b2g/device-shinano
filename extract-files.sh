@@ -379,6 +379,7 @@ COMMON_ETC="
 	iddd.conf
 	dsx_param_file.bin
 	sap.conf
+	sec_config
 	sensor_def_qcomdev.conf
 	ramdump_ssr.xml
 	"
