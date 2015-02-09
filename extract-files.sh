@@ -346,6 +346,7 @@ COMMON_BINS="
 	gsiff_daemon
 	hvdcp
 	display_color_calib
+	touchscreend
 	"
 
 copy_files "$COMMON_BINS" "system/bin" ""
