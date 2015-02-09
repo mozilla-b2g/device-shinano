@@ -27,7 +27,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
   ro.semc.version.sw_variant=GENERIC \
   ro.semc.version.sw_type=user \
 
-GAIA_DEV_PIXELS_PER_PX := 2.0
+GAIA_DEV_PIXELS_PER_PX := 2.25
 
 PRODUCT_NAME := shinano
 PRODUCT_DEVICE := shinano
