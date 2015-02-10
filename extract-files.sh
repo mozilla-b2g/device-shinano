@@ -90,7 +90,7 @@ PROPRIETARY_DEVICE_DIR=../../../vendor/$MANUFACTURER/$DEVICE/proprietary
 
 mkdir -p $PROPRIETARY_DEVICE_DIR
 
-for NAME in audio etc etc/acdbdata/MTP etc/firmware egl hw nfc camera/LGI02BN1 camera/SEM02BN1 camera/SOI20BS1 root
+for NAME in audio etc etc/acdbdata/MTP etc/firmware egl hw nfc camera/LGI02BN1 camera/SEM02BN1 camera/SOI20BS1 root chargemon_data
 do
     mkdir -p $PROPRIETARY_DEVICE_DIR/$NAME
 done
@@ -274,6 +274,7 @@ COMMON_LIBS="
 	libaudioflinger.so
 	libmedia.so
 	libdisplayservice.so
+	libsomc_thermal.so
 	"
 
 copy_files "$COMMON_LIBS" "system/lib" ""
@@ -296,6 +297,10 @@ copy_files_glob "*.so" "system/vendor/lib/rfsa/adsp" "audio"
 copy_files_glob "*.so" "system/vendor/lib/soundfx" "audio"
 
 copy_files_glob "lib*.so" "system/vendor/lib" ""
+
+copy_files_glob "*.png" "system/somc/chargemon/data/msg" "chargemon_data"
+copy_files_glob "*.png" "system/somc/chargemon/data/num" "chargemon_data"
+copy_files_glob "*.png" "system/somc/chargemon/data/scale" "chargemon_data"
 
 COMMON_BINS="
 	adsprpcd
@@ -347,6 +352,7 @@ COMMON_BINS="
 	hvdcp
 	display_color_calib
 	touchscreend
+	chargemon
 	"
 
 copy_files "$COMMON_BINS" "system/bin" ""
@@ -382,6 +388,7 @@ COMMON_ETC="
 	sec_config
 	sensor_def_qcomdev.conf
 	ramdump_ssr.xml
+	simple_thermal_monitor.cfg
 	"
 copy_files "$COMMON_ETC" "system/etc" "etc"
 
