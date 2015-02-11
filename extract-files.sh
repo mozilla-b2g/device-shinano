@@ -275,6 +275,8 @@ COMMON_LIBS="
 	libmedia.so
 	libdisplayservice.so
 	libsomc_thermal.so
+	librilutils.so
+	libril.so
 	"
 
 copy_files "$COMMON_LIBS" "system/lib" ""
