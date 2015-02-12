@@ -370,7 +370,6 @@ COMMON_ETC="
 	gps.conf
 	lowi.conf
 	media_codecs.xml
-	media_profiles.xml
 	mixer_paths.xml
 	mixer_paths_auxpcm.xml
 	xtwifi.conf

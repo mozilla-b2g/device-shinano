@@ -8,6 +8,7 @@ $(call inherit-product-if-exists, vendor/sony/shinano/shinano-vendor-blobs.mk)
 PRODUCT_COPY_FILES += \
   device/sony/shinano/volume.cfg:system/etc/volume.cfg \
   system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf \
+  device/sony/shinano/media_profiles.xml:system/etc/media_profiles.xml \
 
 PRODUCT_PACKAGES += \
   bcm4339.ko \
