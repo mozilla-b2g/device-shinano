@@ -101,6 +101,19 @@
         <!--
         Profiles for the back camera
         -->
+        <EncoderProfile quality="4kuhd" fileFormat="mp4" duration="60">
+            <Video codec="h264"
+                   bitRate="70000000"
+                   width="3840"
+                   height="2160"
+                   frameRate="30" />
+
+            <Audio codec="aac"
+                   bitRate="156000"
+                   sampleRate="48000"
+                   channels="2" />
+        </EncoderProfile>
+
         <EncoderProfile quality="1080p" fileFormat="mp4" duration="60">
             <Video codec="h264"
                    bitRate="17500000"
