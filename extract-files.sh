@@ -214,6 +214,8 @@ copy_files "$COMMON_ROOT_SBIN" "root/sbin" "root"
 copy_files_glob "*.png" "root/res/images/charger" "root"
 
 COMMON_LIBS="
+	libnfc-nci.so
+	libnfc_ndef.so
 	libcnefeatureconfig.so
 	libgps.utils.so
 	libloc_api_v02.so
@@ -388,6 +390,8 @@ COMMON_ETC="
 	sensor_def_qcomdev.conf
 	ramdump_ssr.xml
 	simple_thermal_monitor.cfg
+	libnfc-brcm.conf
+	libnfc-nxp.conf
 	"
 copy_files "$COMMON_ETC" "system/etc" "etc"
 
