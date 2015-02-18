@@ -1,18 +1,5 @@
-$(call inherit-product, device/qcom/msm8974/msm8974.mk)
-
-PRODUCT_COPY_FILES := @inherit:device/qcom/common/common.mk
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
+$(call inherit-product-if-exists, device/sony/shinano-common/device.mk)
 $(call inherit-product-if-exists, vendor/sony/shinano/shinano-vendor-blobs.mk)
-
-PRODUCT_COPY_FILES += \
-  device/sony/shinano/volume.cfg:system/etc/volume.cfg \
-  system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf \
-  device/sony/shinano/media_profiles.xml:system/etc/media_profiles.xml \
-
-PRODUCT_PACKAGES += \
-  bcm4339.ko \
-  libandroid \
 
 # for Gecko
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -30,8 +17,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 GAIA_DEV_PIXELS_PER_PX := 2.25
 
+EXPORT_DEVICE_PREFS := $(LOCAL_PATH)/prefs
+
 PRODUCT_NAME := shinano
 PRODUCT_DEVICE := shinano
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := shinano
+PRODUCT_MODEL := Xperia Z3 (B2G)
