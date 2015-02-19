@@ -24,3 +24,22 @@ SHINANO_ETC="
 	"
 
 copy_files "$SHINANO_ETC" "system/etc" "etc"
+
+SHINANO_FIRMWARE_CLEARPAD="
+       touch_module_id_0x74.img
+       touch_module_id_0x75.img
+       touch_module_id_0x76.img
+       touch_module_id_0x78.img
+       touch_module_id_0x7a.img
+       touch_module_id_0x7b.img
+       touch_module_id_0x7c.img
+       touch_module_id_0x7d.img
+       touch_module_id_0x7e.img
+       touch_module_id_0x7f.img
+       touch_module_id_0x80.img
+       touch_module_id_0x81.img
+       touch_module_id_0x95.img
+       touch_module_id_0x96.img
+       "
+
+copy_files "$SHINANO_FIRMWARE_CLEARPAD" "system/etc/firmware" "etc/firmware"
