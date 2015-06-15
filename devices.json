@@ -8,7 +8,7 @@
     },
     "fastboot": {
       "product": [ "D6603", "D6633" ],
-      "version-bootloader": [ "1286-7314 S1_Boot_MSM8974AC_LA3.0_60", "1286-7314 S1_Boot_MSM8974AC_LA3.0_L_15" ]
+      "version-bootloader": [ "1286-7314 S1_Boot_MSM8974AC_LA3.0_60", "1286-7314 S1_Boot_MSM8974AC_LA3.0_L_15", "1286-7314 S1_Boot_MSM8974AC_LA3.0_L_15.4" ]
     }
   }
 ]
