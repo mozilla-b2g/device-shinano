@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE=shinano
+DEVICE=leo
 MANUFACTURER=sony
 
 . ../shinano-common/extract-files.sh
