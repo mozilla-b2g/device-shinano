@@ -1,4 +1,4 @@
-TARGET_DEVICE_BLOBS := vendor/sony/shinano/shinano-vendor-blobs.mk
+TARGET_DEVICE_BLOBS := vendor/sony/leo/leo-vendor-blobs.mk
 
 $(call inherit-product-if-exists, device/sony/shinano-common/device.mk)
 $(call inherit-product-if-exists, $(TARGET_DEVICE_BLOBS))
@@ -23,8 +23,8 @@ BOOTANIMATION_ASSET_SIZE := 1080p
 
 EXPORT_DEVICE_PREFS := $(LOCAL_PATH)/prefs
 
-PRODUCT_NAME := shinano
-PRODUCT_DEVICE := shinano
+PRODUCT_NAME := leo
+PRODUCT_DEVICE := leo
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
 PRODUCT_MODEL := Xperia Z3 (B2G)

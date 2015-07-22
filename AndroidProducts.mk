@@ -1,1 +1,1 @@
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/shinano.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/leo.mk
